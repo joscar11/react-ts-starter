@@ -27,6 +27,7 @@ my-app/
 │   ├── assets/
 │   ├── components/
 │   ├── features/
+│   ├── pages/
 │   ├── styles/
 │   ├── utils/
 │   ├── App.tsx
