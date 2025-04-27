@@ -20,7 +20,9 @@
         "paths": {
             // scabalitlity
             "@components/*": ["components/*"],
-            "@features/*": ["features/*"],
+            "@pages/*": ["pages/*"],
+            "@assets/*": ["assets/*"],
+            "@context/*": ["context/*"],
             "@styles/*": ["styles/*"],
             "@utils/*": ["utils/*"]
         },

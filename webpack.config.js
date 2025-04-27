@@ -10,7 +10,15 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            '@components': path.resolve(__dirname, 'src/components/'),
+            '@pages': path.resolve(__dirname, 'src/pages/'),
+            '@assets': path.resolve(__dirname, 'src/assets/'),
+            '@context': path.resolve(__dirname, 'src/context/'),
+            '@styles': path.resolve(__dirname, 'src/styles/'),
+            '@utils': path.resolve(__dirname, 'src/utils/')
+        }
     },
     module: {
         rules: [
@@ -20,7 +28,21 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.scss$/,
+                test: /\.module\.s[ac]ss$/i,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        }
+                    },
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                exclude: /\.module\.s[ac]ss$/i,
                 use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
